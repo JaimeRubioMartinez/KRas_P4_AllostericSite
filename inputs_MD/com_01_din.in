@@ -1,0 +1,60 @@
+ 1-paso heating the system  NTV
+ &cntrl
+     imin=0, irest=0, ntx=1, nmropt=1, 
+     ntpr=1000, 
+     ntc=2,ntf=2, dt=0.001, tol=0.000001,
+     cut = 10.0, 
+     ntb=1, igb =0,
+     nstlim=100000,
+     ntt = 3, gamma_ln = 1.0,     
+     ntp=0,
+     ntwv=0, ntwe=1000, ntwx=1000,ntwr=1000,  
+     ntr=1,ibelly=0,
+ &end
+#                                                                          |
+# Simple  annealing algorithm:                                             |
+#                                                                          |
+ &wt type='TEMP0', istep1=0,istep2=10000,value1=0.,
+            value2=30.,    &end
+ &wt type='TEMP0', istep1=10001,istep2=20000,value1=30.,
+            value2=60.,    &end
+ &wt type='TEMP0', istep1=20001,istep2=30000,value1=60.,
+            value2=90.,    &end
+ &wt type='TEMP0', istep1=30001,istep2=40000,value1=90.,
+            value2=120.,    &end
+ &wt type='TEMP0', istep1=40001,istep2=50000,value1=120.,
+            value2=150.,    &end
+ &wt type='TEMP0', istep1=50001,istep2=60000,value1=150.,
+            value2=180.,    &end
+ &wt type='TEMP0', istep1=60001,istep2=70000,value1=180.,
+            value2=210.,    &end
+ &wt type='TEMP0', istep1=70001,istep2=80000,value1=210.,
+            value2=240.,    &end
+ &wt type='TEMP0', istep1=80001,istep2=90000,value1=240.,
+            value2=270.,    &end
+ &wt type='TEMP0', istep1=90001,istep2=100000,value1=270.,
+            value2=300.,    &end
+|#                                                                          |
+|# Strength of temperature coupling:                                        |
+|#                                                                          |
+|#    steps 0.2        : tight coupling for heating and equilibration       |
+|#    steps 4.0 - 2.0  : slow cooling phase                                 |
+|#    steps 0.5        : somewhat faster cooling                            |
+|#    steps 0.05       : fast cooling, like a minimization                  |
+|#                                                                          |
+  &wt type='TAUTP', istep1=0,istep2=100000,value1=0.2,
+             value2=0.2,     &end
+  &wt type='END'  &end             
+- - Fijamos el backbone de la proteina 
+ 5.0
+FIND
+ * * M *
+SEARCH
+RES   1  170
+END
+- - Fijamos el ligando
+ 5.0
+RES   171 172
+END 
+END
+
