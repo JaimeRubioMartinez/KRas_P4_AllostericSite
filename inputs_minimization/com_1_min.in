@@ -1,0 +1,22 @@
+(c) Minimizacion Inh
+
+ &cntrl
+   imin=1, 
+   maxcyc=1000, ncyc=1000, ntmin=1,
+   cut=10., 
+   irest=0, ntrx=1, ntx=1,
+   ntb=1,
+   ntr=1,  
+ &end
+-- Fijamos la proteina 
+ 1.0
+FIND
+ * * M *
+SEARCH
+RES   1 170
+END
+-- Fijamos el ligando 
+ 1.0
+RES   171 172
+END
+END
