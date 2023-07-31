@@ -1,0 +1,6 @@
+GRIDFILE   glide-grid_repr32644/glide-grid_repr32644.zip
+HBOND_ACCEP_HALO   True
+LIGANDFILE   glide-dock_SP_ZincLL_21all_P4_PHCD.maegz
+POSES_PER_LIG   5
+POSTDOCK_NPOSE   10
+PRECISION   SP
